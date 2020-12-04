@@ -23,50 +23,90 @@
 
 
 axios
-.get("https://lambda-times-api.herokuapp.com/articles")
-.then((res)=> {
-   const cardData = res.data.articles;
-
-   Object.keys(cardData).forEach(item => {
-       const topicArticles = cardData[item]
-       topicArticles.forEach(article => {
-         cardCreator(article);
-        })
-    }) 
+.get ("https://lambda-times-api.herokuapp.com/articles")
+.then (res => {
+  const data = res.data.articles;
+  console.log(data)
 })
-.catch((err)=> {
+.catch (err => {
   console.log(err);
 })
 
+function cardMaker() {
 
-function cardCreator (data) {
-
-    const card = document.createElement('div');
-    card.classList.add('card')
-
-    const headline = document.createElement('div');
-    headline.classList.add('headline');
-    headline.textContent = data.headline;
-    headline.addEventListener("click", function() {
-        console.log(headline.textContent);
-    })
-    card.append(headline);
-
-    const author = document.createElement('div');
-    author.classList.add('author');
-    author.textContent = data.authorName;
-    card.append(author);
-
-    const imageContainer = document.createElement('div');
-    imageContainer.classList.add('img-container');
-    author.append(imageContainer);
-
-    const image = document.createElement('img');
-    image.src = data.authorPhoto;
-    imageContainer.append(image);
-    
-    const cardContainer = document.querySelector('.cards-container')
-    cardContainer.append(card);
-
-    return card;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// axios
+// .get("https://lambda-times-api.herokuapp.com/articles")
+// .then((res)=> {
+//    const cardData = res.data.articles;
+
+//    Object.keys(cardData).forEach(item => {
+//        const topicArticles = cardData[item]
+//        topicArticles.forEach(article => {
+//          cardCreator(article);
+//         })
+//     }) 
+// })
+// .catch((err)=> {
+//   console.log(err);
+// })
+
+
+// function cardCreator (data) {
+
+//     const card = document.createElement('div');
+//     card.classList.add('card')
+
+//     const headline = document.createElement('div');
+//     headline.classList.add('headline');
+//     headline.textContent = data.headline;
+//     headline.addEventListener("click", function() {
+//         console.log(headline.textContent);
+//     })
+//     card.append(headline);
+
+//     const author = document.createElement('div');
+//     author.classList.add('author');
+//     author.textContent = data.authorName;
+//     card.append(author);
+
+//     const imageContainer = document.createElement('div');
+//     imageContainer.classList.add('img-container');
+//     author.append(imageContainer);
+
+//     const image = document.createElement('img');
+//     image.src = data.authorPhoto;
+//     imageContainer.append(image);
+    
+//     const cardContainer = document.querySelector('.cards-container')
+//     cardContainer.append(card);
+
+//     return card;
+// }
