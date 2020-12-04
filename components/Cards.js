@@ -26,87 +26,51 @@ axios
 .get ("https://lambda-times-api.herokuapp.com/articles")
 .then (res => {
   const data = res.data.articles;
-  console.log(data)
+
+  Object.keys(data).forEach(item => {
+    const articles = data[item]
+    articles.forEach(article => {
+      cardMaker(article)
+    })
+  })
 })
 .catch (err => {
   console.log(err);
 })
 
-function cardMaker() {
 
+
+function cardMaker(data) {
+
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const headLine = document.createElement('div');
+  headLine.classList.add('headline');
+  headLine.textContent = data.headline;
+  card.append(headLine);
+  headLine.addEventListener('click', function() {
+    console.log(headLine.textContent);
+  })
+
+  const authorContent = document.createElement('div');
+  authorContent.classList.add('author');
+  card.append(authorContent);
+
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('img-container');
+  authorContent.append(imgContainer);
+
+  const img = document.createElement('img');
+  img.src = data.authorPhoto;
+  imgContainer.append(img);
+
+  const author = document.createElement('div');
+  author.textContent = `By ${data.authorName}`;
+  card.append(author);
+
+  const cardContainer = document.querySelector('.cards-container')
+  cardContainer.append(card);
+
+  // didn't need return card?
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// axios
-// .get("https://lambda-times-api.herokuapp.com/articles")
-// .then((res)=> {
-//    const cardData = res.data.articles;
-
-//    Object.keys(cardData).forEach(item => {
-//        const topicArticles = cardData[item]
-//        topicArticles.forEach(article => {
-//          cardCreator(article);
-//         })
-//     }) 
-// })
-// .catch((err)=> {
-//   console.log(err);
-// })
-
-
-// function cardCreator (data) {
-
-//     const card = document.createElement('div');
-//     card.classList.add('card')
-
-//     const headline = document.createElement('div');
-//     headline.classList.add('headline');
-//     headline.textContent = data.headline;
-//     headline.addEventListener("click", function() {
-//         console.log(headline.textContent);
-//     })
-//     card.append(headline);
-
-//     const author = document.createElement('div');
-//     author.classList.add('author');
-//     author.textContent = data.authorName;
-//     card.append(author);
-
-//     const imageContainer = document.createElement('div');
-//     imageContainer.classList.add('img-container');
-//     author.append(imageContainer);
-
-//     const image = document.createElement('img');
-//     image.src = data.authorPhoto;
-//     imageContainer.append(image);
-    
-//     const cardContainer = document.querySelector('.cards-container')
-//     cardContainer.append(card);
-
-//     return card;
-// }

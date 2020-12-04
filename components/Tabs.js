@@ -16,6 +16,7 @@ axios
 .then (res => {
   const data = res.data.topics;
   tabMaker(data);
+  //usually append up here
 })
 .catch (err => {
   console.log(err)
@@ -29,5 +30,7 @@ function tabMaker (data) {
   tab.textContent = item;
   const tabContainer = document.querySelector('.topics')
   tabContainer.append(tab);
+
+  //no return tab, still works?
   }) 
 }
