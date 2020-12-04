@@ -11,25 +11,51 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
+// function Header() {
+//   const header = document.createElement('div')
+//   header.classList.add('header');
+
+//   const date = document.createElement('span')
+//   date.classList.add('date');
+//   date.textContent = 'March 28, 2020';
+//   header.append(date);
+
+//   const title = document.createElement('h1')
+//   title.textContent = "Lambda Times";
+//   header.append(title);
+
+//   const temp = document.createElement('span')
+//   temp.classList.add(temp)
+//   temp.textContent = "98"
+//   header.append(temp);
+
+//   return header;
+// }
+
+// const header = document.querySelector('.header-container');
+// header.append(Header())
+
 function Header() {
-  const header = document.createElement('div')
-  header.classList.add('header');
 
-  const date = document.createElement('span')
-  date.classList.add('date');
-  date.textContent = 'March 28, 2020';
-  header.append(date);
+  const header = document.createElement('div');
+  header.classList.add("header");
 
-  const title = document.createElement('h1')
-  title.textContent = "Lambda Times";
-  header.append(title);
+  const span = document.createElement("span");
+  span.classList.add("date");
+  span.textContent = "MARCH 28, 2020";
+  header.append(span);
 
-  const temp = document.createElement('span')
-  temp.classList.add(temp)
-  temp.textContent = 98;
-  header.append(temp);
+  const h1 = document.createElement('h1');
+  h1.textContent = "Lambda Times";
+  header.append(h1);
+
+  const spanTemp = document.createElement('span');
+  spanTemp.classList.add("temp");
+  spanTemp.textContent = "98°"
+  header.append(spanTemp);
 
   return header;
 }
 
-console.log("Heyo")
+const header = document.querySelector('.header-container');
+header.append(Header())
